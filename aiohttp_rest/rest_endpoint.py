@@ -8,6 +8,7 @@ from aiohttp.web_exceptions import HTTPMethodNotAllowed
 from aiohttp.web_request import Request
 from aiohttp.web_urldispatcher import UrlDispatcher
 
+
 METHODS_SUPPORTED_BY_DEFAULT = ('GET', 'POST', 'PUT', 'DELETE', 'PATCH')
 
 
@@ -44,23 +45,34 @@ class AioHTTPRestEndpoint:
         """
         return [self._produce_route(route, version_prefix) for route in self.connected_routes()]
 
-    def register_routes(self, router:UrlDispatcher, version_prefix:str):
+    def register_routes(self, router:UrlDispatcher, version_prefix:Optional[str] = None):
         """
 
         :param router:
         :param version_prefix:
         :return:
         """
+        routes = self.connected_routes()
+        if isinstance(routes, str):
+            routes = [routes]
+
         for route in self.connected_routes():
-            # resourse = self._produce_route(route, version_prefix)
-            # if logging.getLogger().getEffectiveLevel() == logging.DEBUG:
-            #     logging.info('Connect {0} to route {1}'.format(
-            #         self.__class__, resourse
-            #     ))
+            try:
+                if not route.startswith('/'):
+                    route = '/{0}'.format(route)
 
-            router.add_route('*', route, self.dispatch)
+                if isinstance(version_prefix, str):
+                    route = '/{0}{1}'.format(version_prefix, route)
 
-    def connected_routes(self) -> List[str]:
+                router.add_route('*', route, self.dispatch)
+                if logging.getLogger().getEffectiveLevel() == logging.DEBUG:
+                    logging.info('{0} is connected {1}'.format(
+                            self.__class__, route
+                        ))
+            except RuntimeError as e:
+                raise RuntimeError('Seems URL {0}, described in {1}, is already connected to another endpoint'.format(route, self.__class__))
+
+    def connected_routes(self) -> Union[str, List[str]]:
         """
         """
         return NotImplementedError

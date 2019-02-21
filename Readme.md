@@ -5,9 +5,9 @@ RESTful API servers with aiohttp
 ## Todo
 
 * ~~Basic integration with aiohttp~~
-* Routes (with trailing _/_)
-    * Verify duplicating routes
-* Debugging    
+* ~~Verify duplicating routes~~
+* ~~Debugging~~    
+* API versioning
 * Swagger docs
 * Decorators (or their alternatives)
 * Autoloader for endpoints
