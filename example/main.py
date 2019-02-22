@@ -1,6 +1,7 @@
 import os
 from aiohttp import web
-from aiohttp_rest.loader import load_and_connect_all_endpoints_from_folder
+from aiohttp_rest.loader import load_and_connect_all_endpoints_from_folder, get_swagger_documentation
+from aiohttp_rest.swagger import setup_swagger
 
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -16,5 +17,7 @@ load_and_connect_all_endpoints_from_folder(
     app=app,
     version_prefix='v1'
 )
+
+setup_swagger(app, swagger_info=get_swagger_documentation())
 
 web.run_app(app)

@@ -19,7 +19,7 @@ class DemoEndpoint(AioHTTPRestEndpoint):
     async def get(self, request: Request) -> Response:
         """
         ---
-        description: Method returns a crypt key for  device registration. Each key can be used only once
+        description: Method returns a crypto key for device registration. Each key can be used only once
         produces:
         - application/protobuf
         responses:

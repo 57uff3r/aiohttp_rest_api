@@ -9,7 +9,7 @@ from aiohttp.web_request import Request
 from aiohttp.web_urldispatcher import UrlDispatcher
 
 
-METHODS_SUPPORTED_BY_DEFAULT = ('GET', 'POST', 'PUT', 'DELETE', 'PATCH')
+SUPPORTED_METHODS = ('GET', 'POST', 'PUT', 'DELETE', 'PATCH')
 
 
 class AioHTTPRestEndpoint:
@@ -23,27 +23,31 @@ class AioHTTPRestEndpoint:
         """
         self.methods:dict = {}
 
-        for method_name in METHODS_SUPPORTED_BY_DEFAULT:
+        for method_name in SUPPORTED_METHODS:
             method = getattr(self, method_name.lower(), None)
             if method:
                 self.register_method(method_name, method)
 
-    def _produce_route(self, route:str, version_prefix:str) -> str:
+    def produce_routes(self, version_prefix:Optional[str] = None) -> List[str]:
         """
-
-        :param route:
+        Return list of all routes for endpoint
         :param version_prefix:
         :return:
         """
-        return '/{0}{1}'.format(version_prefix, route)
+        routes, result = self.connected_routes(), []
+        if isinstance(routes, str):
+            routes:list = [routes]
 
-    def produce_routes(self, version_prefix:str) -> list:
-        """
+        for route in routes:
+            if not route.startswith('/'):
+                route = '/{0}'.format(route)
 
-        :param version_prefix:
-        :return:
-        """
-        return [self._produce_route(route, version_prefix) for route in self.connected_routes()]
+            if isinstance(version_prefix, str):
+                route = '/{0}{1}'.format(version_prefix, route)
+
+            result.append(route)
+
+        return result
 
     def register_routes(self, router:UrlDispatcher, version_prefix:Optional[str] = None):
         """
@@ -52,18 +56,8 @@ class AioHTTPRestEndpoint:
         :param version_prefix:
         :return:
         """
-        routes = self.connected_routes()
-        if isinstance(routes, str):
-            routes = [routes]
-
-        for route in self.connected_routes():
+        for route in self.produce_routes(version_prefix):
             try:
-                if not route.startswith('/'):
-                    route = '/{0}'.format(route)
-
-                if isinstance(version_prefix, str):
-                    route = '/{0}{1}'.format(version_prefix, route)
-
                 router.add_route('*', route, self.dispatch)
                 if logging.getLogger().getEffectiveLevel() == logging.DEBUG:
                     logging.info('{0} is connected {1}'.format(
@@ -94,7 +88,7 @@ class AioHTTPRestEndpoint:
         """
         method = self.methods.get(request.method.upper())
         if not method:
-            raise HTTPMethodNotAllowed('', METHODS_SUPPORTED_BY_DEFAULT)
+            raise HTTPMethodNotAllowed('', SUPPORTED_METHODS)
 
         wanted_args = list(inspect.signature(method).parameters.keys())
         available_args = request.match_info.copy()

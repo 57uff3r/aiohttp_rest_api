@@ -14,7 +14,10 @@ requirements = [
     'idna>=2.8',
     'multidict>=4.5.2',
     'typing-extensions>=3.7.2',
-    'yarl>=1.3.0'
+    'yarl>=1.3.0',
+    'ujson>=1.35',
+    'PyYAML>=3.13',
+    'frozendict>=1.2'
 ]
 
 
