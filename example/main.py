@@ -5,11 +5,6 @@ from aiohttp_rest.swagger import setup_swagger
 
 import logging
 logging.basicConfig(level=logging.DEBUG)
-# logger = logging.Logger('aiohttp_rest')
-# logger.setLevel(logging.DEBUG)
-
-async def hello(request):
-    return web.Response(text="Hello, world")
 
 app = web.Application()
 load_and_connect_all_endpoints_from_folder(

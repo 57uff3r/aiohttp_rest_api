@@ -50,8 +50,12 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Framework :: AsyncIO',
     ],
+    python_requires='>=3.5.3',
     zip_safe=False,
     include_package_data=True,
     platforms='any',
     install_requires=requirements,
+    extras_require={
+        'docs': 'sphinx',
+    }
 )

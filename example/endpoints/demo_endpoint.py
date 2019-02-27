@@ -1,10 +1,10 @@
 from typing import List
-# import phonenumbers
 
 from aiohttp.web_response import Response
 from aiohttp.web import Request
 
 from aiohttp_rest.rest_endpoint import AioHTTPRestEndpoint
+from aiohttp_rest.responses import respond_with_plaintext
 
 
 class DemoEndpoint(AioHTTPRestEndpoint):
@@ -27,8 +27,10 @@ class DemoEndpoint(AioHTTPRestEndpoint):
                 description: successful operation. Secret key was produced
         """
 
-        return Response(
-            status=200,
-            body='Hello world',
-            content_type='text/plain'
-        )
+        return respond_with_plaintext('Hello world')
+
+        # return Response(
+        #     status=200,
+        #     body='Hello world',
+        #     content_type='text/plain'
+        # )

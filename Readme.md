@@ -9,9 +9,8 @@ RESTful API servers with aiohttp
 * ~~Debugging~~    
 * ~~API versioning~~
 * URL parameters
-* Swagger docs
-* Decorators (or their alternatives)
-* Autoloader for endpoints
+* ~~Swagger docs~~
+* ~~Autoloader for endpoints~~
 * ~~Custom responses (text, binary, protobufs)~~
 * Common shared decorators?
 * Documentation

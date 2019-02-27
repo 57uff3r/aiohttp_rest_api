@@ -44,7 +44,7 @@ def build_doc_from_func_doc(handler, method):
     return {method.lower(): end_point_swagger_doc}
 
 
-def generate_doc_template(api_base_url: str = "/",
+def generate_doc_template(api_base_url: str = "",
                             description: str = "Swagger API definition",
                             api_version: str = "v1",
                             title: str = "Swagger API",
@@ -81,7 +81,7 @@ async def _swagger_def(request):
 
 def setup_swagger(app: Application,
                   swagger_url: str = "/doc",
-                  api_base_url: str = "/",
+                  # api_base_url: str = "/lol",
                   description: str = "Swagger API definition",
                   api_version: str = "1.0.0",
                   title: str = "Swagger API",
