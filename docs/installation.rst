@@ -7,7 +7,7 @@ Installation
 
 Install  with ``pip`` ::
 
-    $ pip install aiohttp_rest_api
+    $ pip install aiohttp-rest-api
 
 
 The development version can be downloaded from `GitHub

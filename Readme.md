@@ -8,7 +8,7 @@ versioning and Swagger docstrings.
 
 
 ```bash
-pip install aiohttp_rest_api
+pip install aiohttp-rest-api
  ```
 
 

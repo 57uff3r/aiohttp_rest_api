@@ -147,4 +147,4 @@ Every HTTP-verb related method (**get**, **post**, **put**, **path**, **delete**
 
         return respond_with_plaintext('Hello world')
 
-Just add `---` separator and wright your Swagger documentation in YAML format format right after it.
+Just add `- - -` separator and wright your Swagger documentation in YAML format right after it.
