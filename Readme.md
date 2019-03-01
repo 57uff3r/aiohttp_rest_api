@@ -10,3 +10,6 @@ versioning and Swagger docstrings.
 ```bash
 pip install aiohttp_rest_api
  ```
+
+
+Documentation: [https://aiohttp-rest-api.readthedocs.io/](https://aiohttp-rest-api.readthedocs.io/)
