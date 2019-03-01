@@ -1,4 +1,4 @@
-from typing import List, Optional, Iterable, Union
+from typing import List, Optional, Union
 import inspect
 import logging
 
@@ -7,6 +7,9 @@ from aiohttp.http_exceptions import HttpBadRequest
 from aiohttp.web_exceptions import HTTPMethodNotAllowed
 from aiohttp.web_request import Request
 from aiohttp.web_urldispatcher import UrlDispatcher
+
+
+__all__ = ('AioHTTPRestEndpoint')
 
 
 SUPPORTED_METHODS = ('GET', 'POST', 'PUT', 'DELETE', 'PATCH')

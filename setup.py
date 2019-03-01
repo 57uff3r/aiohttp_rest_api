@@ -23,7 +23,7 @@ requirements = [
 
 version_file = path.join(
     path.dirname(__file__),
-    'aiohttp_rest',
+    'aiohttp_rest_api',
     '__version__.py'
 )
 with open(version_file, 'r') as fp:
@@ -36,10 +36,10 @@ with open(version_file, 'r') as fp:
 
 
 setup(
-    name='aiohttp_rest',
+    name='aiohttp_rest_api',
     version=version,
     license='MIT',
-    url='https://github.com/57uff3r/aiohttp_rest',
+    url='https://github.com/57uff3r/aiohttp_rest_api',
     author='Andrey Korchak',
     author_email='me@akorchak.software',
     description='RESTful API servers with aiohttp',
@@ -50,7 +50,8 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Framework :: AsyncIO',
     ],
-    python_requires='>=3.5.3',
+    packages=find_packages(exclude=['tests']),
+    python_requires='>=3.6.0',
     zip_safe=False,
     include_package_data=True,
     platforms='any',

@@ -3,8 +3,8 @@ from typing import List
 from aiohttp.web_response import Response
 from aiohttp.web import Request
 
-from aiohttp_rest.rest_endpoint import AioHTTPRestEndpoint
-from aiohttp_rest.responses import respond_with_plaintext
+from aiohttp_rest_api import AioHTTPRestEndpoint
+from aiohttp_rest_api.responses import respond_with_plaintext
 
 
 class DemoEndpoint(AioHTTPRestEndpoint):

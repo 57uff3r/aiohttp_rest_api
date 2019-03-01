@@ -3,11 +3,11 @@
 Quickstart
 ==========
 
-.. currentmodule:: aiohttp_rest
+.. currentmodule:: aiohttp_rest_api
 
 It's time to write your first REST API. This guide assumes you have a working
 understanding of `aiohttp <https://aiohttp.readthedocs.io/en/stable/>`_, and that you have already
-installed aiohttp_rest.
+installed aiohttp_rest_api.
 
 Kicking off demo REST API app
 -----------------------------
@@ -33,8 +33,8 @@ Put the following content into the files
 
     import os
     from aiohttp import web
-    from aiohttp_rest.loader import load_and_connect_all_endpoints_from_folder, get_swagger_documentation
-    from aiohttp_rest.swagger import setup_swagger
+    from aiohttp_rest_api.loader import load_and_connect_all_endpoints_from_folder, get_swagger_documentation
+    from aiohttp_rest_api.swagger import setup_swagger
 
     import logging
     logging.basicConfig(level=logging.DEBUG)
@@ -58,8 +58,8 @@ Put the following content into the files
     from aiohttp.web_response import Response
     from aiohttp.web import Request
 
-    from aiohttp_rest.rest_endpoint import AioHTTPRestEndpoint
-    from aiohttp_rest.responses import respond_with_plaintext
+    from aiohttp_rest_api.rest_endpoint import AioHTTPRestEndpoint
+    from aiohttp_rest_api.responses import respond_with_plaintext
 
 
     class DemoEndpoint(AioHTTPRestEndpoint):
@@ -127,3 +127,24 @@ You also can enable Swagged documentation page just like that ::
 
     setup_swagger(app, swagger_info=get_swagger_documentation())
 
+
+Swagger documentation
+---------------------
+
+Every HTTP-verb related method (**get**, **post**, **put**, **path**, **delete**) might documented via Swagger docstrings. ::
+
+
+    async def get(self, request: Request) -> Response:
+        """
+        ---
+        description: Method returns a crypto key for device registration. Each key can be used only once
+        produces:
+        - application/protobuf
+        responses:
+            "200":
+                description: successful operation. Secret key was produced
+        """
+
+        return respond_with_plaintext('Hello world')
+
+Just add `---` separator and wright your Swagger documentation in YAML format format right after it.

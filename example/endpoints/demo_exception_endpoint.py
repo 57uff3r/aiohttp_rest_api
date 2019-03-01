@@ -4,7 +4,7 @@ from typing import List
 from aiohttp.web_response import Response
 from aiohttp.web import Request
 
-from aiohttp_rest.rest_endpoint import AioHTTPRestEndpoint
+from aiohttp_rest_api import AioHTTPRestEndpoint
 
 
 class DemoEndpoint(AioHTTPRestEndpoint):

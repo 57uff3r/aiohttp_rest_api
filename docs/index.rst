@@ -1,11 +1,11 @@
 :orphan:
 
-aiohttp_rest
-=============
+aiohttp_rest_api
+================
 
-.. module:: aiohttp_rest
+.. module:: aiohttp_rest_api
 
-**aiohttp_rest** is an extension for aiohttp that adds support for quickly
+**aiohttp_rest_api** is an extension for aiohttp that adds support for quickly
 building REST APIs. It automates the creation of REST endpoints, supports APIs
 versioning and Swagger docstrings.
 

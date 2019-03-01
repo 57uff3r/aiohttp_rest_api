@@ -7,7 +7,7 @@ from os.path import abspath, dirname, join
 from aiohttp.web import Application
 from aiohttp import web
 
-from aiohttp_rest.responses import respond_with_json, respond_with_html
+from aiohttp_rest_api.responses import respond_with_json, respond_with_html
 
 
 STATIC_PATH: Final = abspath(join(dirname(__file__), "swagger_ui"))

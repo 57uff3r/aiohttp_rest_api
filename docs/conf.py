@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'aiohttp_rest'
+project = 'aiohttp_rest_api'
 copyright = '2019, Andrey Korchak'
 author = 'Andrey Korchak'
 
@@ -101,7 +101,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'aiohttp_restdoc'
+htmlhelp_basename = 'aiohttp_rest_apidoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -128,7 +128,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'aiohttp_rest.tex', 'aiohttp\\_rest Documentation',
+    (master_doc, 'aiohttp_rest_api.tex', 'aiohttp\\_rest Documentation',
      'Andrey Korchak', 'manual'),
 ]
 
@@ -138,7 +138,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'aiohttp_rest', 'aiohttp_rest Documentation',
+    (master_doc, 'aiohttp_rest_api', 'aiohttp_rest_api Documentation',
      [author], 1)
 ]
 
@@ -149,8 +149,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'aiohttp_rest', 'aiohttp_rest Documentation',
-     author, 'aiohttp_rest', 'One line description of project.',
+    (master_doc, 'aiohttp_rest_api', 'aiohttp_rest_api Documentation',
+     author, 'aiohttp_rest_api', 'One line description of project.',
      'Miscellaneous'),
 ]
 
