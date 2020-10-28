@@ -2,14 +2,11 @@
 
 RESTful API servers with aiohttp.
 
-**aiohttp_rest_api** is an extension for aiohttp that adds support for quickly
-building REST APIs. It automates the creation of REST endpoints, supports APIs
-versioning and Swagger docstrings.
+I'm going to be actively working on this library in the next coming months.
 
+Here goes a todo list  for me:
 
-```bash
-pip install aiohttp-rest-api
- ```
-
-
-Documentation: [https://aiohttp-rest-api.readthedocs.io/](https://aiohttp-rest-api.readthedocs.io/)
+* Pydantic based API calls parameters
+* Swagger integration
+* Boilerplate code for REST applications
+* GitHub action for pip package updates
